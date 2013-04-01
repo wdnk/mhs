@@ -1,0 +1,5 @@
+<?php
+// koneksi ke mysql
+mysql_connect('localhost', '', 'teknik0417');
+mysql_select_db('akadft_akdemikft');
+?>

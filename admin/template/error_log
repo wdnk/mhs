@@ -1,0 +1,12 @@
+[01-Mar-2013 10:45:42] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/akadft/public_html/mhs/admin/template/get_wilayah-opr.php on line 10
+[01-Mar-2013 10:48:34] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/akadft/public_html/mhs/admin/template/get_wilayah-opr.php on line 10
+[03-Mar-2013 12:46:23] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/akadft/public_html/mhs/admin/template/get_wilayah-opr.php on line 10
+[03-Mar-2013 20:28:30] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/akadft/public_html/mhs/admin/template/get_wilayah-opr.php on line 10
+[03-Mar-2013 21:33:30] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/akadft/public_html/mhs/admin/template/get_wilayah-opr.php on line 10
+[03-Mar-2013 21:35:18] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/akadft/public_html/mhs/admin/template/get_wilayah-opr.php on line 10
+[04-Mar-2013 22:18:58] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/akadft/public_html/mhs/admin/template/get_wilayah-opr.php on line 10
+[05-Mar-2013 15:16:44] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/akadft/public_html/mhs/admin/template/get_wilayah-opr.php on line 10
+[05-Mar-2013 15:16:53] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/akadft/public_html/mhs/admin/template/get_wilayah-opr.php on line 10
+[11-Mar-2013 10:33:47] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/akadft/public_html/mhs/admin/template/get_wilayah-opr.php on line 10
+[11-Mar-2013 10:33:54] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/akadft/public_html/mhs/admin/template/get_wilayah-opr.php on line 10
+[19-Mar-2013 11:10:06] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/akadft/public_html/mhs/admin/template/get_wilayah-opr.php on line 10

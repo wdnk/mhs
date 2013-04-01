@@ -1,0 +1,50 @@
+<?php
+//panggil file koneksi.php untuk menghubung ke server
+include "../koneksi.php";
+session_start();
+include "../cek.php";
+// koneksi ke mysql
+
+// membaca username yang disimpan dalam session
+$user = $_SESSION['username'];
+
+		$id=$_POST['jenjang'];
+		$ta=$_POST['ta'];
+		$country=$_POST['country'];
+		$provinsi=$_POST['provinsi'];
+		$bulan_lulus=$_POST['bulan_lulus'];
+		$tahun_lulus=$_POST['tahun_lulus'];
+		
+		$queri="select * from mahasiswa LEFT JOIN jenjang ON mahasiswa.jenjang = jenjang.NO_ID where NO='$_GET[id]'";
+  		$execute=mysql_query($queri);
+  		$baris=mysql_fetch_array($execute);
+		
+
+//------------------------------------------Tugas Akhir----------------------------------------------------------//
+
+// || $country=='' || $provinsi=='' || $bulan_lulus=='' || $tahun_lulus==''
+//('$_POST[niu]','$_POST[nif]','$_POST[nama]','$_POST[tahun]','$_POST[notest]','$_POST[jalur]','$_POST[jenis]','$_POST[jenj]','$_POST[prod]','$_POST[alamat]','$_POST[alamatot]','$_POST[ipk]','$_POST[sks]','$_POST[ta2]','$_POST[country2]','$_POST[provinsi2]','$_POST[bulan_lulus2]','$_POST[tahun_lulus2]',now(),'$_POST[catatan]',now())";
+// ($ta=='' || $country=='' || $provinsi=='' || $bulan_lulus=='' || $tahun_lulus=='') 
+
+//Jika kolom TA kosong maka isikan dari kolom ta2 
+if ($ta=='' || $country=='' || $provinsi=='' || $bulan_lulus=='' || $tahun_lulus=='')
+{
+$kueri1a = "INSERT INTO mahasiswa (NIU,NIF,NAMA,ANGKATAN,NOTEST,JALUR,JK,jenjang,PRODI,ALAMAT,ALAMATOT,IPK,SKS,TA,KS,ProvinceCode,bulan,Tahun,DATE,catatan,TIME) 
+		VALUES 
+		('$_POST[niu]','$_POST[nif]','$_POST[nama]','$_POST[tahun]','$_POST[notest]','$_POST[jalur]','$_POST[jenis]','$_POST[jenj]','$_POST[prod]','$_POST[alamat]','$_POST[alamatot]','$_POST[ipk]','$_POST[sks]','$_POST[ta2]','$_POST[country2]','$_POST[provinsi2]','$_POST[bulan_lulus2]','$_POST[tahun_lulus2]',now(),'$_POST[catatan]',now())";
+$hasil1a = mysql_query($kueri1a);
+}
+else 
+{
+//jika semua terisi maka proses perintah berikut
+$kueri6 = "INSERT INTO mahasiswa (NIU,NIF,NAMA,ANGKATAN,NOTEST,JALUR,JK,jenjang,PRODI,ALAMAT,ALAMATOT,IPK,SKS,TA,KS,ProvinceCode,bulan,Tahun,DATE,catatan,TIME) 
+		VALUES 
+		('$_POST[niu]','$_POST[nif]','$_POST[nama]','$_POST[tahun]','$_POST[notest]','$_POST[jalur]','$_POST[jenis]','$_POST[jenj]','$_POST[prod]','$_POST[alamat]','$_POST[alamatot]','$_POST[ipk]','$_POST[sks]','$_POST[ta]','$_POST[country]','$_POST[provinsi]','$_POST[bulan_lulus]','$_POST[tahun_lulus]',now(),'$_POST[catatan]',now())";
+$hasil6 = mysql_query($kueri6);
+}
+
+if ($hasil1a) {
+    header('location:form_cari_data.php?message=success');
+}
+
+?>

@@ -1,0 +1,115 @@
+[01-Mar-2013 10:08:52] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'akadft_akdemikft'@'localhost' (using password: YES) in /home1/akadft/public_html/mhs/koneksi.php on line 3
+[01-Mar-2013 10:08:52] PHP Warning:  mysql_select_db() [<a href='function.mysql-select-db'>function.mysql-select-db</a>]: Access denied for user 'akadft'@'localhost' (using password: NO) in /home1/akadft/public_html/mhs/koneksi.php on line 4
+[01-Mar-2013 10:08:52] PHP Warning:  mysql_select_db() [<a href='function.mysql-select-db'>function.mysql-select-db</a>]: A link to the server could not be established in /home1/akadft/public_html/mhs/koneksi.php on line 4
+[01-Mar-2013 10:08:52] PHP Warning:  mysqli_connect() [<a href='function.mysqli-connect'>function.mysqli-connect</a>]: (28000/1045): Access denied for user 'akadft_akdemikft'@'localhost' (using password: YES) in /home1/akadft/public_html/mhs/core/connection.php on line 3
+[03-Mar-2013 12:44:52] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home1/akadft/public_html/mhs/admin/form_report.php:2) in /home1/akadft/public_html/mhs/admin/form_report.php on line 7
+[03-Mar-2013 12:45:27] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home1/akadft/public_html/mhs/admin/form_report.php:2) in /home1/akadft/public_html/mhs/admin/form_report.php on line 7
+[03-Mar-2013 12:45:48] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home1/akadft/public_html/mhs/admin/form_report.php:2) in /home1/akadft/public_html/mhs/admin/form_report.php on line 7
+[03-Mar-2013 12:46:51] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home1/akadft/public_html/mhs/admin/form_report.php:2) in /home1/akadft/public_html/mhs/admin/form_report.php on line 7
+[03-Mar-2013 12:47:37] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home1/akadft/public_html/mhs/admin/form_report.php:2) in /home1/akadft/public_html/mhs/admin/form_report.php on line 7
+[03-Mar-2013 12:48:19] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home1/akadft/public_html/mhs/admin/form_report.php:2) in /home1/akadft/public_html/mhs/admin/form_report.php on line 7
+[03-Mar-2013 13:02:54] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home1/akadft/public_html/mhs/admin/proses_report.php on line 95
+[03-Mar-2013 13:59:11] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 71
+[03-Mar-2013 21:20:58] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 75
+[03-Mar-2013 21:31:57] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 72
+[03-Mar-2013 22:07:08] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 72
+[03-Mar-2013 22:38:57] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 78
+[18-Mar-2013 23:59:21] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[18-Mar-2013 23:59:36] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 00:00:13] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 02:04:25] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 02:05:00] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 02:06:12] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 02:07:02] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 02:07:48] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 02:08:47] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 02:09:13] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 02:09:51] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 02:10:21] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 02:10:52] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 02:11:22] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 02:11:58] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 02:12:25] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:29:21] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:30:36] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:31:09] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:32:40] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:33:16] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:33:50] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:34:49] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:35:39] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:36:15] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:36:55] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:37:36] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:38:13] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:39:32] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:39:42] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:40:08] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:40:54] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 03:41:12] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 04:54:39] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 04:55:26] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 04:56:22] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 04:57:14] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 04:57:53] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 04:58:30] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 04:59:11] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 04:59:46] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 05:00:17] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 05:00:44] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 05:01:18] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 05:01:50] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 07:32:33] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 07:37:56] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 07:40:56] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 07:58:53] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 07:59:02] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 07:59:15] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 07:59:31] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 08:12:51] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 08:19:43] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 08:24:12] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 98
+[19-Mar-2013 08:31:57] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 08:32:40] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 08:36:53] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 08:37:11] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 08:38:18] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 08:39:57] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 08:48:42] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 08:56:53] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 08:57:00] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 08:57:19] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 08:57:28] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 08:57:41] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 09:13:50] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 09:14:03] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 09:14:23] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 09:14:53] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 09:15:10] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 09:15:25] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 09:40:19] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 11:12:20] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 13:20:02] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 13:20:45] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 13:20:55] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 13:22:10] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 13:26:36] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 13:55:47] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 13:56:25] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 13:56:40] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 14:03:44] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 14:03:50] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 14:05:48] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[19-Mar-2013 14:11:50] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[20-Mar-2013 12:44:29] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[20-Mar-2013 14:58:25] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[20-Mar-2013 16:20:28] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[26-Mar-2013 15:15:05] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[26-Mar-2013 15:33:11] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[27-Mar-2013 16:55:43] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[28-Mar-2013 12:16:53] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[28-Mar-2013 13:18:37] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[30-Mar-2013 19:50:28] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[30-Mar-2013 21:58:57] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[30-Mar-2013 21:59:07] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102
+[30-Mar-2013 22:33:56] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/akadft/public_html/mhs/admin/proses_report.php on line 102

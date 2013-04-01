@@ -1,0 +1,138 @@
+<?php
+include "../koneksi.php";
+session_start();
+include "../cek.php";
+// koneksi ke mysql
+
+// membaca username yang disimpan dalam session
+$user = $_SESSION['username'];				
+
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px; color: #FFFFFF; }
+.style3 {font-size: 12px}
+.style1 {
+	font-size: 18px;
+	font-weight: bold;
+	}
+body {
+	background-color: #F0F0F0;
+}
+-->
+</style>
+</head>
+
+<body>
+<p></p>
+
+<?php
+
+$jenjang=$_POST['jenjang'];
+$country=$_POST['country'];
+
+if($jenjang=="" || $country=="") {
+echo "<span class='style1'>Maaf, Njenengan harus memilih semua</span>";
+echo "<p></p>";
+echo "<a href='form_report.php'><img src='../img/ok1.png' name='ok'></a>";
+}
+else {
+
+echo "<table width='1820' border='1' cellpadding='3' ><tr>
+<td align='center' width='35' height='35' bgcolor='333333' class='style2'>No</td>
+<td align='center' width='35' height='35' bgcolor='333333' class='style2'>NIF</td>
+<td align='center' width='250' height='35' bgcolor='333333' class='style2'>Nama</td>
+<td align='center' width='45' height='35' bgcolor='333333' class='style2'>Angkatan</td>
+<td align='center' width='75' height='35' bgcolor='333333' class='style2'>Jenjang Studi</td>
+<td align='center' width='190' height='35' bgcolor='333333' class='style2'>Program Studi</td>
+<td align='center' width='35' height='35' bgcolor='333333' class='style2'>IPK</td>
+<td align='center' width='50' height='35' bgcolor='333333' class='style2'>SKS Kum.</td>
+<td align='center' width='50' height='35' bgcolor='333333' class='style2'>Tugas Akhir</td>
+<td align='center' width='100' height='35' bgcolor='333333' class='style2'>Kategori Satus</td>
+<td align='center' width='100' height='35' bgcolor='333333' class='style2'>Status Detail</td>
+<td align='center' width='75' height='35' bgcolor='333333' class='style2'>Target Lulus</td>
+<td align='center' width='200' height='35' bgcolor='333333' class='style2'>Catatan</td>
+<td align='center' width='100' height='35' bgcolor='333333' class='style2'>Tanggal Update</td>
+</tr>";
+
+// Langkah 1: Tentukan batas,cek halaman & posisi data
+$batas   = 12000;
+$halaman = $_GET['halaman'];
+if(empty($halaman)){
+	$posisi  = 0;
+	$halaman = 1;
+}
+else{
+	$posisi = ($halaman-1) * $batas;
+}
+//$tampil = "select * from (mahasiswa LEFT JOIN jenjang ON mahasiswa.jenjang = jenjang.NO_ID) LEFT JOIN program ON mahasiswa.PRODI = program.PRODI where jenjang='$jenjang' || PRODI='$prodi' || KS='$country' order by NIF LIMIT $posisi,$batas";
+//Langkah 2: Sesuaikan perintah SQL
+$prodi=$_POST['prodi'];
+$jenjang=$_POST['jenjang'];
+$country=$_POST['country'];
+
+//menampilkan hanya 1 data terbaru yang mewakili
+$tampil_jenjang = "select * from mahasiswa LEFT JOIN jenjang ON mahasiswa.jenjang = jenjang.NO_ID where PRODI='$prodi' and KS='$country' and NO=(
+select MAX(NO)
+from mahasiswa AS a
+where a.NIF=mahasiswa.NIF)
+order by NO desc";
+$tampil_prodi = "select * from mahasiswa LEFT JOIN program ON mahasiswa.PRODI = program.PRODI where KS='$country'";
+$tampil_KS = "SELECT * from mahasiswa LEFT JOIN m_country ON mahasiswa.KS = m_country.CountryCode where KS='$country'";
+$tampil_SD = "SELECT * from mahasiswa LEFT JOIN m_province ON mahasiswa.ProvinceCode = m_province.ProvinceCode where KS='$country'";
+
+//$hasil_semua  = mysql_query($tampil_semua);
+$hasil  = mysql_query($tampil_jenjang);
+$hasil2  = mysql_query($tampil_prodi);
+$hasil3 = mysql_query($tampil_KS);
+$hasil4 = mysql_query($tampil_SD);
+
+//$e=mysql_fetch_array($hasil_semua);
+$s=mysql_fetch_array($hasil2);
+$f = mysql_fetch_array($hasil3);
+$i = mysql_fetch_array($hasil4);
+
+$no = $posisi+1;
+while($r=mysql_fetch_array($hasil))
+{
+
+
+  echo "<tr>
+  <td align='center' width='35' height='30' class='style3'>$no</td>
+  <td align='center' width='35' height='30' class='style3'>$r[NIF]</td>
+  <td align='center' width='250' height='30' class='style3'>$r[NAMA]</td>
+  <td align='center' width='45' height='30' class='style3'>$r[ANGKATAN]</td>
+  <td align='center' width='75' height='30' class='style3'>$r[NJ]</td>
+  <td align='center' width='190' height='30' class='style3'>$s[PS]</td>
+  <td align='center' width='35' height='30' class='style3'>$r[IPK]</td>
+  <td align='center' width='50' height='30' class='style3'>$r[SKS]</td>
+  <td align='center' width='50' height='30' class='style3'>$r[TA]</td>
+  <td align='center' width='100' height='30' class='style3'>$f[CountryDesc]</td>
+  <td align='center' width='100' height='30' class='style3'>$i[ProvinceDesc]</td>
+  <td align='center' width='75' height='30' class='style3'>$r[bulan] $r[Tahun]</td>
+  <td align='center' width='200' height='30' class='style3'>$r[catatan]</td>  
+  <td align='center' width='100' height='30' class='style3'>$r[DATE] - $r[TIME]</td>  
+  </tr>";
+  $no++;
+}
+echo "</table><br>";
+
+//Langkah 3: Hitung total data dan halaman 
+$tampil2 = mysql_query("select * from mahasiswa where PRODI='$prodi' && KS='$country' GROUP BY NIF order by NO desc");
+$jmldata = mysql_num_rows($tampil2);
+$jmlhal  = ceil($jmldata/$batas);
+
+
+echo "</div>";
+echo "<p align=center>Total data : <b>$jmldata</b> </p>";
+}
+?>
+
+
+</body>
+</html>
