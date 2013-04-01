@@ -1,11 +1,11 @@
 <?php
-include "../koneksi.php";
+include_once ('../koneksi.php');
 
 if(!isset($_SESSION)){
 	session_start();
 }
 
-include "../cek.php";
+include_once ('../cek.php');
 // koneksi ke mysql
 
 // membaca username yang disimpan dalam session
@@ -67,14 +67,16 @@ echo "<table width='1820' border='1' cellpadding='3' ><tr>
 
 // Langkah 1: Tentukan batas,cek halaman & posisi data
 $batas   = 12000;
-$halaman = $_GET['halaman'];
-if(empty($halaman)){
+
+if(empty($_GET['halaman'])){
 	$posisi  = 0;
 	$halaman = 1;
 }
 else{
+	$halaman = $_GET['halaman'];
 	$posisi = ($halaman-1) * $batas;
 }
+
 //$tampil = "select * from (mahasiswa LEFT JOIN jenjang ON mahasiswa.jenjang = jenjang.NO_ID) LEFT JOIN program ON mahasiswa.PRODI = program.PRODI where jenjang='$jenjang' || PRODI='$prodi' || KS='$country' order by NIF LIMIT $posisi,$batas";
 //Langkah 2: Sesuaikan perintah SQL
 $prodi=$_POST['prodi'];
@@ -92,20 +94,36 @@ select MAX(NO)
 from mahasiswa AS a
 where a.NIF=mahasiswa.NIF)
 order by NO desc";
-//$tampil_prodi = "select * from mahasiswa LEFT JOIN program ON mahasiswa.PRODI = program.PRODI where KS='$country' and PRODI='$prodi'";
+$tampil_prodi = "select * from mahasiswa LEFT JOIN program ON mahasiswa.PRODI = program.PRODI where KS='$country' and mahasiswa.PRODI='$prodi'";
 $tampil_KS = "SELECT * from mahasiswa LEFT JOIN m_country ON mahasiswa.KS = m_country.CountryCode where KS='$country' and PRODI='$prodi'";
 $tampil_SD = "SELECT * from mahasiswa LEFT JOIN m_province ON mahasiswa.ProvinceCode = m_province.ProvinceCode where KS='$country' and PRODI='$prodi'";
 
 //$hasil_semua  = mysql_query($tampil_semua);
 $hasil  = mysql_query($tampil_jenjang);
+//echo $tampil_prodi;
 $hasil2  = mysql_query($tampil_prodi);
 $hasil3 = mysql_query($tampil_KS);
 $hasil4 = mysql_query($tampil_SD);
 
+if($hasil2 === FALSE) {
+    die(mysql_error()); 
+}else{
+	$s = mysql_fetch_array($hasil2);
+}
+
+if($hasil3 === FALSE) {
+    die(mysql_error()); 
+}else{
+	$f = mysql_fetch_array($hasil3);
+}
+
+if($hasil4 === FALSE) {
+    die(mysql_error()); 
+}else{
+	$i = mysql_fetch_array($hasil4);
+}
+
 //$e=mysql_fetch_array($hasil_semua);
-$s=mysql_fetch_array($hasil2);
-$f = mysql_fetch_array($hasil3);
-$i = mysql_fetch_array($hasil4);
 
 $no = $posisi+1;
 while($r=mysql_fetch_array($hasil))

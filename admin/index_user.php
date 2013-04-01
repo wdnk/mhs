@@ -3,11 +3,11 @@ if(!isset($_SESSION)){
 	session_start();
 }
 
-include "../cek.php";
+include_once ('../cek.php');
 
 // koneksi ke mysql
 
-include "../koneksi.php";
+include_once ('../koneksi.php');
 // membaca username yang disimpan dalam session
 
 
