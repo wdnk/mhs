@@ -43,7 +43,7 @@ if (empty($username) && empty($password)) {
 		//echo "Selamat datang $user";
     	//echo "<p>";
 		// tampilkan menu
-    	header('location:admin/proses_login.php');
+    	header('location:admin/index_user.php');
 
 	}
 else {

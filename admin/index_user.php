@@ -22,8 +22,16 @@ $user = $_SESSION['username'];
 </head>
 
 <frameset cols="250,*" frameborder="NO" border="0" framespacing="0">
-  <frame src="kiri_user.php" name="leftFrame" scrolling="NO" noresize>
-  <frame src="kanan_user.php" name="mainFrame">
+  <div class="content">
+    <div class="content_resize">
+		<div class="sidebar">
+  			<frame src="kiri_user.php" name="leftFrame" scrolling="NO" noresize>
+  		</div>
+	  	<div id="main-content">
+  			<frame src="kanan_user.php" name="mainFrame">
+  		</div>
+  	</div>
+  </div>
 </frameset>
 <noframes><body>
 </body></noframes>
