@@ -11,20 +11,8 @@ $user = $_SESSION['username'];
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>Untitled Document</title>
-<style type="text/css">
-<!--
-.style2 {font-size: 14px}
-.style4 {font-size: 14px; font-weight: bold; }
-.style1 {	font-size: 14px;
-	color: #666666;
-}
-.style5 {color: #000000}
-body {
-	background-color: #F0F0F0;
-}
--->
-</style>
+<title>Sistem Monitoring Mahasiswa Khusus</title>
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -35,7 +23,7 @@ body {
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td colspan="7"><span class="style4">SISTEM MONITORING MAHASISWA KHUSUS </span></td>
+    <td colspan="7"><span>SISTEM MONITORING MAHASISWA KHUSUS</span></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -47,7 +35,7 @@ body {
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td colspan="7" class="style1"><div align="justify" class="style5">Selamat datang dihalaman <span class="style2">SISTEM MONITORING MAHASISWA yang perlu perhatian khusus. </span><br>
+    <td colspan="7"><div align="justify">Selamat datang di halaman <span>SISTEM MONITORING MAHASISWA yang perlu perhatian khusus. </span><br>
   Untuk kenyamanan tampilan, silahkan menggunakan browser Mozilla Firefox atau Google Chrome </div></td>
   </tr>
   <tr>

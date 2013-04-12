@@ -57,13 +57,13 @@ function indonesian_date ($timestamp = '', $date_format = 'l, j F Y') {
     <div class="content_resize">
       <div id="sidebar"><div id="sidebar-wrapper">
         <div id="logo">
-            <div id="ugm"><img src="../img/logo.gif" width="35%" height="35%"></div>
+            <div id="ugm"><img src="../img/logo.gif" width="70%" height="70%"></div>
             <div id="head">SISTEM MONITORING MAHASISWA KHUSUS</div>
             <div id="subhead">FAKULTAS TEKNIK</div>
             <div id="subhead">UNIVERSITAS GADJAH MADA</div>
         </div>
         <div id="profile-links">
-          <div align="center" class="style1"><?php echo indonesian_date (); ?></div>
+          <div id="tanggal"><?php echo indonesian_date (); ?></div>
         </div>
 
         <ul id="main-nav"> 
@@ -83,7 +83,7 @@ function indonesian_date ($timestamp = '', $date_format = 'l, j F Y') {
             <a href="../logout.php" target="_parent" class="nav-top-item no-submenu">LOGOUT</a>
           </li>
         </ul>
-        <div align="center"><img src="../img/akeh.png" width="30%" height="30%"></div>
+        <div align="center"><img src="../img/akeh.png" width="40%" height="40%"></div>
       </div>
     </div>
   </div>

@@ -16,20 +16,8 @@ $user = $_SESSION['username'];
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>Untitled Document</title>
-<style type="text/css">
-<!--
-.style2 {font-size: 12px; color: #FFFFFF; }
-.style3 {font-size: 12px}
-.style1 {
-	font-size: 18px;
-	font-weight: bold;
-	}
-body {
-	background-color: #F0F0F0;
-}
--->
-</style>
+<title>Proses Report</title>
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -42,27 +30,27 @@ $country=$_POST['country'];
 $prodi=$_POST['prodi'];
 
 if($jenjang=="" || $country=="") {
-echo "<span class='style1'>Maaf, Njenengan harus memilih semua</span>";
-echo "<p></p>";
-echo "<a href='form_report.php'><img src='../img/ok1.png' name='ok'></a>";
+
+echo "<span>Maaf, Njenengan harus memilih semua</span>";
+echo "<a href='form_report.php'><img src='../img/ok1.png' name='ok'></a><br><br>";
 }
 else {
 
 echo "<table width='1820' border='1' cellpadding='3' ><tr>
-<td align='center' width='35' height='35' bgcolor='333333' class='style2'>No</td>
-<td align='center' width='35' height='35' bgcolor='333333' class='style2'>NIF</td>
-<td align='center' width='250' height='35' bgcolor='333333' class='style2'>Nama</td>
-<td align='center' width='45' height='35' bgcolor='333333' class='style2'>Angkatan</td>
-<td align='center' width='75' height='35' bgcolor='333333' class='style2'>Jenjang Studi</td>
-<td align='center' width='190' height='35' bgcolor='333333' class='style2'>Program Studi</td>
-<td align='center' width='35' height='35' bgcolor='333333' class='style2'>IPK</td>
-<td align='center' width='50' height='35' bgcolor='333333' class='style2'>SKS Kum.</td>
-<td align='center' width='50' height='35' bgcolor='333333' class='style2'>Tugas Akhir</td>
-<td align='center' width='100' height='35' bgcolor='333333' class='style2'>Kategori Satus</td>
-<td align='center' width='100' height='35' bgcolor='333333' class='style2'>Status Detail</td>
-<td align='center' width='75' height='35' bgcolor='333333' class='style2'>Target Lulus</td>
-<td align='center' width='200' height='35' bgcolor='333333' class='style2'>Catatan</td>
-<td align='center' width='100' height='35' bgcolor='333333' class='style2'>Tanggal Update</td>
+<th align='center' width='35' height='35' bgcolor='333333' class='style2'>No</th>
+<th align='center' width='35' height='35' bgcolor='333333' class='style2'>NIF</th>
+<th align='center' width='250' height='35' bgcolor='333333' class='style2'>Nama</th>
+<th align='center' width='45' height='35' bgcolor='333333' class='style2'>Angkatan</th>
+<th align='center' width='75' height='35' bgcolor='333333' class='style2'>Jenjang Studi</th>
+<th align='center' width='190' height='35' bgcolor='333333' class='style2'>Program Studi</th>
+<th align='center' width='35' height='35' bgcolor='333333' class='style2'>IPK</th>
+<th align='center' width='50' height='35' bgcolor='333333' class='style2'>SKS Kum.</th>
+<th align='center' width='50' height='35' bgcolor='333333' class='style2'>Tugas Akhir</th>
+<th align='center' width='100' height='35' bgcolor='333333' class='style2'>Kategori Satus</th>
+<th align='center' width='100' height='35' bgcolor='333333' class='style2'>Status Detail</th>
+<th align='center' width='75' height='35' bgcolor='333333' class='style2'>Target Lulus</th>
+<th align='center' width='200' height='35' bgcolor='333333' class='style2'>Catatan</th>
+<th align='center' width='100' height='35' bgcolor='333333' class='style2'>Tanggal Update</th>
 </tr>";
 
 // Langkah 1: Tentukan batas,cek halaman & posisi data
@@ -131,34 +119,32 @@ while($r=mysql_fetch_array($hasil))
 
 
   echo "<tr>
-  <td align='center' width='35' height='30' class='style3'>$no</td>
-  <td align='center' width='35' height='30' class='style3'>$r[NIF]</td>
-  <td align='center' width='250' height='30' class='style3'>$r[NAMA]</td>
-  <td align='center' width='45' height='30' class='style3'>$r[ANGKATAN]</td>
-  <td align='center' width='75' height='30' class='style3'>$r[NJ]</td>
-  <td align='center' width='190' height='30' class='style3'>$r[PS]</td>
-  <td align='center' width='35' height='30' class='style3'>$r[IPK]</td>
-  <td align='center' width='50' height='30' class='style3'>$r[SKS]</td>
-  <td align='center' width='50' height='30' class='style3'>$r[TA]</td>
-  <td align='center' width='100' height='30' class='style3'>$f[CountryDesc]</td>
-  <td align='center' width='100' height='30' class='style3'>$i[ProvinceDesc]</td>
-  <td align='center' width='75' height='30' class='style3'>$r[bulan] $r[Tahun]</td>
-  <td align='center' width='200' height='30' class='style3'>$r[catatan]</td>  
-  <td align='center' width='100' height='30' class='style3'>$r[DATE] - $r[TIME]</td>  
+  <td align='center' width='35' height='30' id='td2'>$no</td>
+  <td align='center' width='35' height='30' id='td2'>$r[NIF]</td>
+  <td align='center' width='250' height='30' id='td2'>$r[NAMA]</td>
+  <td align='center' width='45' height='30' id='td2'>$r[ANGKATAN]</td>
+  <td align='center' width='75' height='30' id='td2'>$r[NJ]</td>
+  <td align='center' width='190' height='30' id='td2'>$r[PS]</td>
+  <td align='center' width='35' height='30' id='td2'>$r[IPK]</td>
+  <td align='center' width='50' height='30' id='td2'>$r[SKS]</td>
+  <td align='center' width='50' height='30' id='td2'>$r[TA]</td>
+  <td align='center' width='100' height='30' id='td2'>$f[CountryDesc]</td>
+  <td align='center' width='100' height='30' id='td2'>$i[ProvinceDesc]</td>
+  <td align='center' width='75' height='30' id='td2'>$r[bulan] $r[Tahun]</td>
+  <td align='center' width='200' height='30' id='td2'>$r[catatan]</td>  
+  <td align='center' width='100' height='30' id='td2'>$r[DATE] - $r[TIME]</td>  
   </tr>";
   $no++;
 }
-echo "</table><br>";
 
 //Langkah 3: Hitung total data dan halaman 
 $tampil2 = mysql_query("select * from mahasiswa where PRODI='$prodi' && KS='$country' GROUP BY NIF order by NO desc");
 $jmldata = mysql_num_rows($tampil2);
 $jmlhal  = ceil($jmldata/$batas);
 
-
-echo "</div>";
-echo "<p align=center>Total data : <b>$jmldata</b> </p>";
+echo "<tr><td colspan='14'>Total data : <b>$jmldata</b> </td></tr>";
 }
+echo "</table>";
 ?>
 
 

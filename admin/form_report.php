@@ -11,9 +11,8 @@
 
 <html>
 <head>
-
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" type="text/JavaScript">
-
  function showKab()
  {
  <?php
@@ -46,21 +45,14 @@
 
  ?> 
  }
- 
 </script>
+</head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><style type="text/css">
-<!--
-body {
-	background-color: #F0F0F0;
-}
--->
-</style><title>Form Laporan Data Mahasiswa</title></head>
 <body>
 <form name="demo"  method="post"  action="proses_report.php">
 <table width="100%">
 <tr>
-  <td height="35" colspan="3" background="../img/bg_form.jpg">      <div align="center"><strong>Form Laporan Data Mahasiswa </strong></div></td>
+  <td height="35" colspan="3" id="judul"><div id="judul" align="center">Form Laporan Data Mahasiswa</div></td>
 </tr>
 <tr>
   <td width="316">&nbsp;</td>
