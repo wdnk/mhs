@@ -78,7 +78,7 @@ $user = $_SESSION['username'];
 	mysql_select_db($database_akademik) or die("Database gagal diakses");;
 
 	$no=1;
-	$mhs=mysql_query("select mhsNiu, mhsNama, mhsAngkatan, mhsProdiKode, mhsSksTranskrip, mhsIpkTranskrip, mhsTanggalLulus from mahasiswa WHERE (mhsProdiKode >= 64 AND mhsProdiKode <= 74) AND mhsIsTranskripAkhirDiarsipkan <> 1");
+	$mhs=mysql_query("select mhsNiu, mhsNif, mhsNama, mhsAngkatan, mhsProdiKode, mhsSksTranskrip, mhsIpkTranskrip, mhsTanggalLulus from mahasiswa WHERE (mhsProdiKode >= 64 AND mhsProdiKode <= 74) AND mhsIsTranskripAkhirDiarsipkan <> 1") or die(mysql_error());
 	while($mhs2=mysql_fetch_array($mhs)){
 		//$pembimbing_akademik=$mhs2['pembimbing_akademik'];
 		//$qq=mysql_query("SELECT inf_dosen.* FROM inf_dosen_prodi inner join inf_dosen on inf_dosen_prodi.kode_dosen=inf_dosen.kode_dosen WHERE inf_dosen_prodi.	id_dosen_prodi='".$pembimbing_akademik."'");
@@ -88,9 +88,25 @@ $user = $_SESSION['username'];
 		//$hh=mysql_fetch_array($qq);
 		//$prodi=$hh['nama'];
 		//echo $mhs2['mhsProdiKode'];
-		$query_prodi=mysql_query("SELECT * from program_studi WHERE prodiKode=".$mhs2['mhsProdiKode']." AND prodiFakKode='17'");
+		//$semester=null;
+		//$status=null;
+		//$hostname_akademik = "localhost";
+		//$database_akademik = "sia";
+		//$username_akademik = "mtievent";
+		//$password_akademik = "eventmti2013";
+		//$akademik = mysql_pconnect($hostname_akademik, $username_akademik, $password_akademik) or trigger_error(mysql_error(),E_USER_ERROR); 
+		//mysql_select_db($database_akademik) or die("Database gagal diakses");;
+		$conn = mysql_connect('localhost', 'mtievent', 'eventmti2013');
+		mysql_select_db('sia');
+		//mysql_close($conn);
+		$qprodi="SELECT * from program_studi WHERE prodiKode=".$mhs2['mhsProdiKode']." AND prodiFakKode='17'";
+		$query_prodi=mysql_query($qprodi) or die(mysql_error());
+		//echo $qprodi;
 		$qq=mysql_fetch_row($query_prodi);
 		$niu=$mhs2['mhsNiu'];
+		$nif=$mhs2['mhsNif'];
+		//echo $nif;
+		//exit;
 		$nama=$mhs2['mhsNama'];
 		$angkatan=$mhs2['mhsAngkatan'];
 		$kode_prodi=$mhs2['mhsProdiKode'];
@@ -99,51 +115,173 @@ $user = $_SESSION['username'];
 	 	$nama_prodi=$qq[6];
 	 	$tahun_sekarang = date("Y");
 	 	$weekNumber = date("W"); 
-		$semester= ($tahun_sekarang - $angkatan);
-		$semester=$semester*2;
-		if($tahun_sekarang == $angkatan){
-				$semester=1;
-		}else if(($weekNumber < 35) AND ($weekNumber > 8)){
-				$semester=$semester-1;
-		}else{
-				//
-		}
+	 	$waktu=date("H:i:s");
 
-		if($semester == 3){
-			if($IPK < 2.00 && $sks < 30){
-				$status="Evaluasi 2 tahun";
-			}
-		}elseif ($semester == 7){
-			if($IPK < 2.00 && $sks < 80){
-				$status="Evaluasi 4 tahun";
-			}
-		}elseif($semester >= 11){
-			$status="Evaluasi Akhir";
-		}
 		
-		if($nama == null ){
+		//$query_mhs = mysql_query("select * from mahasiswa WHERE NIF='$nif'") or die('SQL Error :: '.mysql_error());
+		//$hitung_mhs = mysql_num_rows($query_mhs);
+		//if($hitung_mhs == null || $hitung_mhs == 0){
+			//echo "kosong";
+		//}else{
+		
+	 	//echo $tahun_sekarang."-".$angkatan."<br>";
+	 	if($angkatan < 2006){
 
-		}else{
-			if($status !== null){
-				echo "<tr>";
-				echo "<td>".$no++."</td>";
-				echo "<td>".$niu."</td>";
-				echo "<td>".$nama."</td>";
-				echo "<td>".$nama_prodi."</td>";
-				echo "<td>".$angkatan."</td>";
-				echo "<td>".$semester."</td>";
-				echo "<td>".$IPK."</td>";
-				echo "<td>".$sks."</td>";
-				echo "<td>".$status."</td>";
-				echo "<td><center><a href=\"#\" class=\"button2 blue\" id=\"button2 blue\">Perbaharui</a></center></td>";
-				echo "</tr>";
+	 	}else{
+	 		//if($IPK >0){
+	 					$conn2 = mysql_connect('localhost', 'akadft', 'teknik0417');
+						mysql_select_db('akadft_akdemikft');
+						$q_prodi="SELECT * from prodi WHERE prodi='".$nama_prodi."'";
+						//echo $q_prodi;
+						$prodi=mysql_query($q_prodi) or die(mysql_error());
+						$qp=mysql_fetch_row($prodi);
+						$kd_prodi=$qp[0];
+						//echo $kd_prodi;
+						//exit;
+	 					$semester = $tahun_sekarang - $angkatan;
+						$semester = $semester * 2;
+						//echo $tahun_sekarang."-".$angkatan."=";
+						if($tahun_sekarang == $angkatan){
+								$semester = 1;
+						}else if(($weekNumber < 35) AND ($weekNumber > 8)){
+								$semester=$semester-1;
+						}
+						//echo $semester."<br>";
+
+						if($semester == 3){
+							if($IPK < 2.00 && $sks < 30){
+								$status="Evaluasi 2 tahun";
+								$semester=$semester+1;
+								
+								echo "<tr>";
+								echo "<td>".$no++."</td>";
+								echo "<td>".$niu."</td>";
+								echo "<td>".$nama."</td>";
+								echo "<td>".$nama_prodi."</td>";
+								echo "<td>".$angkatan."</td>";
+								echo "<td>".$semester."</td>";
+								echo "<td>".$IPK."</td>";
+								echo "<td>".$sks."</td>";
+								echo "<td>".$status."</td>";
+								echo "<td><center><a href=\"edit_mahasiswa1.php?nif=$nif\" class=\"button2 blue\" id=\"button2 blue\">Perbaharui</a></center></td>";
+								echo "</tr>";
+								
+								$q_insert="INSERT INTO temp_mhs (NIU, NIF, NAMA, ANGKATAN, PRODI, IPK, SKS, KS, TIME) VALUES ('$niu', '$nif', '$nama', '$angkatan', '$kd_prodi', '$IPK', '$sks', '1', '$waktu')";
+								mysql_query($q_insert) or die(mysql_error());
+						}
+						}elseif ($semester == 7){
+							if($IPK < 2.00 && $sks < 80){
+								$status="Evaluasi 4 tahun";
+								$semester=$semester+1;
+								
+								echo "<tr>";
+								echo "<td>".$no++."</td>";
+								echo "<td>".$niu."</td>";
+								echo "<td>".$nama."</td>";
+								echo "<td>".$nama_prodi."</td>";
+								echo "<td>".$angkatan."</td>";
+								echo "<td>".$semester."</td>";
+								echo "<td>".$IPK."</td>";
+								echo "<td>".$sks."</td>";
+								echo "<td>".$status."</td>";
+								echo "<td><center><a href=\"edit_mahasiswa1.php?nif=$nif\" class=\"button2 blue\" id=\"button2 blue\">Perbaharui</a></center></td>";
+								echo "</tr>";
+								
+								$q_insert="INSERT INTO temp_mhs (NIU, NIF, NAMA, ANGKATAN, PRODI, IPK, SKS, KS, TIME) VALUES ('$niu', '$nif', '$nama', '$angkatan', '$kd_prodi', '$IPK', '$sks', '2', '$waktu')";
+								mysql_query($q_insert) or die(mysql_error());
+							}
+						}
+						//mysql_close($conn2);
+						/*}elseif($semester == 11){
+							$status="Evaluasi Akhir";
+								echo "<tr>";
+								echo "<td>".$no++."</td>";
+								echo "<td>".$niu."</td>";
+								echo "<td>".$nama."</td>";
+								echo "<td>".$nama_prodi."</td>";
+								echo "<td>".$angkatan."</td>";
+								echo "<td>".$semester."</td>";
+								echo "<td>".$IPK."</td>";
+								echo "<td>".$sks."</td>";
+								echo "<td>".$status."</td>";
+								echo "<td><center><a href=\"#\" class=\"button2 blue\" id=\"button2 blue\">Perbaharui</a></center></td>";
+								echo "</tr>";
+						}*/
+	 		//}
+	 	}
+	 //}	
+	}
+
+		$conn3 = mysql_connect('localhost', 'akadft', 'teknik0417');
+		mysql_select_db('akadft_akdemikft');
+		$q_mhs = mysql_query("select * from temp_mhs") or die('SQL Error :: '.mysql_error());
+		$number=0;
+		$masuk=0;
+		while($mhs3=mysql_fetch_array($q_mhs)){
+			$niu=$mhs3['NIU'];
+			$nif=$mhs3['NIF'];
+			$nama=$mhs3['NAMA'];
+			$angkatan=$mhs3['ANGKATAN'];
+
+			$kd_prodi=$mhs3['PRODI'];
+			$q_prodi="SELECT * from prodi WHERE id_prodi='".$kd_prodi."'";
+			$r_prodi=mysql_query($q_prodi) or die(mysql_error());
+			$qp=mysql_fetch_row($r_prodi);
+			$nama_prodi=$qp[1];
+			
+			$tahun_sekarang = date("Y");
+			$weekNumber = date("W"); 
+			$semester = $tahun_sekarang - $angkatan;
+			$semester = $semester * 2;
+			
+			if($tahun_sekarang == $angkatan){
+				$semester = 1;
+			}else if(($weekNumber < 35) AND ($weekNumber > 8)){
+				$semester=$semester-1;
+			}
+
+			$kd_khusus=$mhs3['KS'];
+			$q_khus="SELECT * from m_country WHERE CountryCode='".$kd_khusus."'";
+			$r_khus=mysql_query($q_khus) or die(mysql_error());
+			$qk=mysql_fetch_row($r_khus);
+			$status=$qk[2];
+
+
+			$IPK=$mhs3['SKS'];
+			$KS=$mh3s['KS'];
+			$waktu=$mhs3['TIME'];
+			$query_mhs = mysql_query("select * from mahasiswa WHERE NIF='$nif'") or die('SQL Error :: '.mysql_error());
+			if(mysql_num_rows($query_mhs) > 0 ){
+				//echo "data di local dan di server sudah sync. Tidak ada data terbaru";
+			}else{
+				$q_insert="INSERT INTO mahasiswa (NIU, NIF, NAMA, ANGKATAN, IPK, SKS, KS, TIME) VALUES ('$niu', '$nif', '$nama', '$angkatan', '$IPK', '$sks', '2', '$waktu')";
+				mysql_query($q_insert) or die(mysql_error());
+				$masuk++;
+					/*
+					echo "<tr>";
+					echo "<td>".$number++."</td>";
+					echo "<td>".$niu."</td>";
+					echo "<td>".$nama."</td>";
+					echo "<td>".$nama_prodi."</td>";
+					echo "<td>".$angkatan."</td>";
+					echo "<td>".$semester."</td>";
+					echo "<td>".$IPK."</td>";
+					echo "<td>".$sks."</td>";
+					echo "<td>".$status."</td>";
+					echo "<td><center><a href=\"edit_mahasiswa1.php?nif=$nif\" class=\"button2 blue\" id=\"button2 blue\">Perbaharui</a></center></td>";
+					echo "</tr>";
+					*/
 			}
 		}
-	}
+		//$conn4 = mysql_connect('localhost', 'akadft', 'teknik0417');
+		//mysql_select_db('akadft_akdemikft');
+		//$q_del="DELETE FROM temp_mhs";
+		//mysql_query($q_del) or die(mysql_error());
 	?>
 </tbody>
 </table>
 </div>
 </div></div></div></div></div></div>
+Data baru yang masuk : <?=$masuk?> data
 </body>
 </html>

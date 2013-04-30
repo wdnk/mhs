@@ -105,7 +105,7 @@
 <tr>
   <td>&nbsp;</td>
   <td>&nbsp;</td>
-  <td><input type="submit" name="Submit" value="Cari"></td>
+  <td><input type="submit" class="form_button" name="Submit" value="Cari"></td>
 </tr>
 </table>
 </form>

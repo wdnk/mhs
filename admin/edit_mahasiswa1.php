@@ -6,33 +6,33 @@ include "../cek.php";
 
 // membaca username yang disimpan dalam session
 $user = $_SESSION['username'];
+$nif = $_GET['nif'];
+
 ?>
 <?php
 		include "../koneksi.php";
-  		$id_edit=$_GET['NO'];
-  		//$queri="select * from mahasiswa where NO='".$id_edit."'";
-		$queri="select * from mahasiswa LEFT JOIN jenjang ON mahasiswa.jenjang = jenjang.NO_ID where NO='$_GET[id]'";
+  		$id_edit=$nif;
+
+		  $queri="select * from mahasiswa LEFT JOIN jenjang ON mahasiswa.jenjang = jenjang.NO_ID where NIF='$nif'";
   		$execute=mysql_query($queri);
   		$baris=mysql_fetch_array($execute);
 				
-			$x = "SELECT * from mahasiswa where NO='$_GET[id]'";
-			//$a = "select * from mahasiswa left join program on mahasiswa.PRODI=program.PS where NO='$_GET[id]'";
+			$x = "SELECT * from mahasiswa where NIF='$nif'";
 			$y = mysql_query($x);
 			$z = mysql_fetch_array($y);
 
 					
-			$a = "SELECT * from mahasiswa LEFT JOIN program ON mahasiswa.PRODI = program.PRODI where NO='$_GET[id]'";
-			//$a = "select * from mahasiswa left join program on mahasiswa.PRODI=program.PS where NO='$_GET[id]'";
+			$a = "SELECT * from mahasiswa LEFT JOIN program ON mahasiswa.PRODI = program.PRODI where NIF='$nif'";
 			$b = mysql_query($a);
 			$c = mysql_fetch_array($b);
 			
 					
-			$d = "SELECT mahasiswa.KS, m_country.CountryCode, m_country.CountryDesc from mahasiswa LEFT JOIN m_country ON mahasiswa.KS = m_country.CountryCode where NO='$_GET[id]'";
+			$d = "SELECT mahasiswa.KS, m_country.CountryCode, m_country.CountryDesc from mahasiswa LEFT JOIN m_country ON mahasiswa.KS = m_country.CountryCode where NIF='$nif'";
 			$e = mysql_query($d);
 			$f = mysql_fetch_array($e);
 			
 				
-			$g = "SELECT mahasiswa.ProvinceCode, m_province.ProvinceCode, m_province.ProvinceDesc from mahasiswa LEFT JOIN m_province ON mahasiswa.ProvinceCode = m_province.ProvinceCode where NO='$_GET[id]'";
+			$g = "SELECT mahasiswa.ProvinceCode, m_province.ProvinceCode, m_province.ProvinceDesc from mahasiswa LEFT JOIN m_province ON mahasiswa.ProvinceCode = m_province.ProvinceCode where NIF='$nif'";
 			$h = mysql_query($g);
 			$i = mysql_fetch_array($h);
 
@@ -41,11 +41,19 @@ include "../core/config.inc.php";
 include "../core/connection.php";
 //require_once('lib/query.php');
 
-echo "<script language=\"JavaScript\" src=\"js/form_validation.js\"></script>";
-echo "<script language=\"JavaScript\" src=\"js/myform.js\"></script>";
 ?>
-<script type="text/javascript" src="../jquery/jquery-1.2.3.pack.js"></script>
-<script type="text/javascript" src="../jquery/jquery.validate.pack.js"></script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <script language=\"JavaScript\" src=\"js/form_validation.js\"></script>
+  <script language=\"JavaScript\" src=\"js/myform.js\"></script>
+  <script type="text/javascript" src="../jquery/jquery-1.2.3.pack.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.validate.pack.js"></script>
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css"/>
+  <link href="css/base.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#input_detil").validate({
@@ -61,28 +69,19 @@ $(document).ready(function() {
 	});
 })
 </script>
-
-<style type="text/css">
-<!--
-body {
-	background-image: url();
-	background-color: #F0F0F0;
-}
-.style7 {color: #000000}
-.style8 {	font-size: 12px;
-	color: #FF0000;
-}
-.style9 {font-size: 12px}
-.style11 {font-size: 14px; color: #FF0000; }
--->
-</style>
+<title>Form edit mahasiswa khusus</title>
+</head>
+<body>
 <div id="left">		
   <form action="proses_updatet_mhs.php" method="post" name="frmcust" onSubmit="return valcust()">
   <table width=100% border="0" class="style">
-    		<tr background="../img/bg_form.jpg">
-      			<td height="35" colspan="6" ><div align="center"><strong>Edit Data Mahasiswa </strong></div></td>
-	  </tr>
+        <thead>
     		<tr>
+      			<tH height="35" colspan="6" ><div align="center"><strong>Edit Data Mahasiswa </strong></div></tH>
+	     </tr>
+       </thead>
+    	 <tbody>
+      	<tr>
     		  <td colspan="5" ><div align="center"><strong>
     		    <input name="id_cust" type="hidden" value="">
    		      </strong></div></td>
@@ -316,7 +315,7 @@ body {
     		  <td>&nbsp;</td>
   		      <td>&nbsp;</td>
    		      <td>&nbsp;</td>
-   		      <td><input type="submit" name="Submit" value="Update"></td>
+   		      <td><input type="submit" class="form_button" name="Submit" value="Update"></td>
    		      <td>&nbsp;</td>
    		      <td>&nbsp;</td>
    		  </tr>
@@ -328,10 +327,12 @@ body {
 	          <td>&nbsp;</td>
 	          <td>&nbsp;</td>
    		  </tr>
-
+</tbody>
     		
             	
   </table>
   <p>&nbsp;</p>
   </form>
 </div>
+</body>
+</html>

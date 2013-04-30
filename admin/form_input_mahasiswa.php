@@ -22,6 +22,9 @@ $user = $_SESSION['username'];
 <title>form input mahasiswa</title>
 <script type="text/javascript" src="../jquery/jquery-1.2.3.pack.js"></script>
 <script type="text/javascript" src="../jquery/jquery.validate.pack.js"></script>
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css"/>
+<link href="css/base.css" rel="stylesheet" type="text/css" /> 
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#input_mhs").validate({
@@ -73,36 +76,19 @@ $(document).ready(function() {
 
  ?> 
  }
- 
 </script>
-
-<style type="text/css">
-
-h4 { font-size: 8px; }
-input { padding: 3px; border: 1px solid #999; }
-input.error, select.error { border: 1px solid red; }
-label.error { color:red; margin-left: 10px; }
-td { padding: 3px; }
-
-<!--
-.style3 {
-	font-size: 12px;
-	color: #666666;
-}
-body {
-	background-image: url();
-	background-color: #F0F0F0;
-}
--->
-</style>
+<title>Input Data Mahasiswa Khusus</title>
 </head>
 
 <body>
 <form action="proses_input_mhs.php" method="post" name="input_mhs" id="input_mhs">
   <table width="100%" border="0">
-    <tr background="../img/bg_form.jpg">
+    <thead>
+    <tr>
       <td height="35" colspan="6"><div align="center"><strong> Form Input Mahasiswa </strong></div></td>
     </tr>
+    </thead>
+    <tbody>
     <tr>
       <td width="5">&nbsp;</td>
       <td width="217">Nomor Induk Universitas </td>
@@ -241,7 +227,7 @@ body {
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
-      <td><input type="submit" name="Submit" value="Submit"></td>
+      <td><input type="submit" class="form_button" name="Submit" value="Submit"></td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
     </tr>
@@ -256,6 +242,7 @@ body {
     <tr>
       <td colspan="6">&nbsp;</td>
     </tr>
+  </tbody>
   </table>
 </form>
 </body>
