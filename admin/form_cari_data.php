@@ -106,7 +106,7 @@ body {
     <tr>
       <td height="25" valign="middle">
 	  
-	      <?
+	      <?php
     //panggil file koneksi.php untuk menghubung ke server
 	include "../koneksi.php";
 	

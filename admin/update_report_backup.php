@@ -70,13 +70,14 @@ $user = $_SESSION['username'];
 	</thead>
 	<tbody>
 <?php
-	$hostname_akademik = "localhost"; //sia server
+	$hostname_akademik = "localhost";
 	$database_akademik = "sia";
 	$username_akademik = "mtievent";
 	$password_akademik = "eventmti2013";
 	$akademik = mysql_pconnect($hostname_akademik, $username_akademik, $password_akademik) or trigger_error(mysql_error(),E_USER_ERROR); 
 	mysql_select_db($database_akademik) or die("Database gagal diakses");;
-
+	//mysql_connect('localhost', 'mtievent', 'eventmti2013');
+	//mysql_select_db('sia');
 	$no=1;
 	$mhs=mysql_query("select mhsNiu, mhsNif, mhsNama, mhsAngkatan, mhsJenisKelamin, mhsAlamatMhs, mhsProdiKode, mhsSksTranskrip, mhsIpkTranskrip, mhsTanggalLulus from mahasiswa WHERE (mhsProdiKode >= 64 AND mhsProdiKode <= 74) AND mhsIsTranskripAkhirDiarsipkan <> 1") or die(mysql_error());
 	while($mhs2=mysql_fetch_array($mhs)){
@@ -90,14 +91,14 @@ $user = $_SESSION['username'];
 		//echo $mhs2['mhsProdiKode'];
 		//$semester=null;
 		//$status=null;
-		//$hostname_akademik = "localhost";
-		//$database_akademik = "sia";
-		//$username_akademik = "mtievent";
-		//$password_akademik = "eventmti2013";
-		//$akademik = mysql_pconnect($hostname_akademik, $username_akademik, $password_akademik) or trigger_error(mysql_error(),E_USER_ERROR); 
-		//mysql_select_db($database_akademik) or die("Database gagal diakses");;
-		$conn = mysql_connect('localhost', 'mtievent', 'eventmti2013');
-		mysql_select_db('sia');
+		$hostname_akademik = "localhost";
+		$database_akademik = "sia";
+		$username_akademik = "mtievent";
+		$password_akademik = "eventmti2013";
+		$akademik = mysql_pconnect($hostname_akademik, $username_akademik, $password_akademik) or trigger_error(mysql_error(),E_USER_ERROR); 
+		mysql_select_db($database_akademik) or die("Database gagal diakses");;
+		//mysql_connect('localhost', 'mtievent', 'eventmti2013');
+		//mysql_select_db('sia');
 		//mysql_close($conn);
 		$qprodi="SELECT * from program_studi WHERE prodiKode=".$mhs2['mhsProdiKode']." AND prodiFakKode='17'";
 		$query_prodi=mysql_query($qprodi) or die(mysql_error());
@@ -105,10 +106,12 @@ $user = $_SESSION['username'];
 		$qq=mysql_fetch_row($query_prodi);
 		$niu=$mhs2['mhsNiu'];
 		$nif=$mhs2['mhsNif'];
-		$jnsKelamin=$mhs2['mhsJenisKelamin'];
-		$alamat=$mhs2['mhsAlamatMhs'];
+		//echo $nif;
+		//exit;
 		$nama=$mhs2['mhsNama'];
 		$angkatan=$mhs2['mhsAngkatan'];
+		$jnsKelamin=$mhs2['mhsJenisKelamin'];
+		$alamat=$mhs2['mhsAlamatMhs'];
 		$kode_prodi=$mhs2['mhsProdiKode'];
 		$sks=$mhs2['mhsSksTranskrip'];
 		$IPK=$mhs2['mhsIpkTranskrip'];
@@ -129,7 +132,7 @@ $user = $_SESSION['username'];
 
 	 	}else{
 	 		//if($IPK >0){
-	 					$conn2 = mysql_connect('localhost', 'akadft', 'teknik0417');
+	 					mysql_connect('localhost', 'akadft', 'teknik0417');
 						mysql_select_db('akadft_akdemikft');
 						$q_prodi="SELECT * from program WHERE PS='".$nama_prodi."'";
 						//echo $q_prodi;
@@ -212,7 +215,7 @@ $user = $_SESSION['username'];
 	 //}	
 	}
 
-		$conn3 = mysql_connect('localhost', 'akadft', 'teknik0417');
+		mysql_connect('localhost', 'akadft', 'teknik0417');
 		mysql_select_db('akadft_akdemikft');
 		$q_mhs = mysql_query("select * from temp_mhs") or die('SQL Error :: '.mysql_error());
 		$number=0;

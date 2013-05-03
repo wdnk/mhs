@@ -77,6 +77,9 @@ function indonesian_date ($timestamp = '', $date_format = 'l, j F Y') {
             <a href="update_report.php" target="mainFrame" class="nav-top-item no-submenu">UPDATE DATA TERBARU</a>
           </li>
           <li>
+            <a href="form_cari_data.php" target="mainFrame" class="nav-top-item no-submenu">PERBARUI STATUS MAHASISWA</a>
+          </li>
+          <li>
             <a href="form_report.php" target="mainFrame" class="nav-top-item no-submenu">TAMPILKAN MAHASISWA KHUSUS</a>
           </li>
           <li>
