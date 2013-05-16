@@ -2,10 +2,16 @@
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
-$hostname_akademik = "175.111.88.169";
-$database_akademik = "sia";
-$username_akademik = "sia";
-$password_akademik = "sia_2012";
-$akademik = mysql_pconnect($hostname_akademik, $username_akademik, $password_akademik) or trigger_error(mysql_error(),E_USER_ERROR); 
-mysql_select_db($database_akademik) or die("Database sia tidak bisa dibuka");;
+$hostname_akademik = "localhost";
+$database_akademik = "akadft";
+$username_akademik = "akadft";
+$password_akademik = "akadft*#*2013";
+$akademik = mysqli_connect($hostname_akademik, $username_akademik, $password_akademik); 
+
+if (mysqli_connect_errno($akademik))
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+mysql_select_db($database_akademik) or die("Database tidak bisa dibuka");
 ?>

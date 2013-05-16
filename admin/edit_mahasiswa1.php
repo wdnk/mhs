@@ -16,6 +16,15 @@ $nif = $_GET['nif'];
 		  $queri="select * from mahasiswa LEFT JOIN jenjang ON mahasiswa.jenjang = jenjang.NO_ID where NIF='$nif'";
   		$execute=mysql_query($queri);
   		$baris=mysql_fetch_array($execute);
+      $NIF=$baris['NIF'];
+      $nama=$baris['NAMA'];
+      $IPK=$baris['IPK'];
+      $SKS=$baris['SKS'];
+      $alamat=$baris['ALAMAT'];
+      $NIU=$baris['NIU'];
+      $angkatan=$baris['ANGKATAN'];
+      $thn_angk=str_split($angkatan, 2);
+
 				
 			$x = "SELECT * from mahasiswa where NIF='$nif'";
 			$y = mysql_query($x);
@@ -25,6 +34,7 @@ $nif = $_GET['nif'];
 			$a = "SELECT * from mahasiswa LEFT JOIN program ON mahasiswa.PRODI = program.PRODI where NIF='$nif'";
 			$b = mysql_query($a);
 			$c = mysql_fetch_array($b);
+      $ps=$c['PS'];
 			
 					
 			$d = "SELECT mahasiswa.KS, m_country.CountryCode, m_country.CountryDesc from mahasiswa LEFT JOIN m_country ON mahasiswa.KS = m_country.CountryCode where NIF='$nif'";
@@ -36,6 +46,10 @@ $nif = $_GET['nif'];
 			$h = mysql_query($g);
 			$i = mysql_fetch_array($h);
 
+      $NIM=$thn_angk[1]."/".$NIU."/TK/".$NIF;
+      $thn_skrg=date("Y");
+      $thn_dpn=str_split($thn_skrg+1, 2);
+      $thn_ajaran=$thn_skrg."/".$thn_dpn[1];
 
 include "../core/config.inc.php";
 include "../core/connection.php";
@@ -250,8 +264,17 @@ $(document).ready(function() {
   		      <td>:</td>
    		      <td bgcolor="#CFCFCF">
 			  
-			  <div id='provinsi'><select name="provinsi" class="cmb" id="provinsi" >
-			    <option value="">-- Pilih Status Detil --</option></select>
+			  <div id='provinsi'>
+          <select name="provinsi" class="cmb" id="provinsi" >
+			         <option value="">-- Pilih Status Detil --</option>
+                <?php
+                  $query = "select * from m_province";
+                  $result = mysqli_query($connection,$query);
+                  while ($rotasi=mysqli_fetch_array($result))
+                  {
+                      echo "<option value=$rotasi[1]>$rotasi[2]</option>";
+                  }?>
+          </select>
 			    <span class="style8">Harus diisi 
 			    <input name="provinsi2" type="hidden" id="provinsi2" value="<?php echo $baris['ProvinceCode'];?>">
 			    </span></div>
@@ -317,7 +340,7 @@ $(document).ready(function() {
    		      <td>&nbsp;</td>
    		      <td><input type="submit" class="form_button" name="Submit" value="Update"></td>
    		      <td>&nbsp;</td>
-   		      <td>&nbsp;</td>
+   		      <td><a href="word.php?nif=<?=$NIF?>&nama=<?=$nama?>&ipk=<?=$IPK?>&sks=<?=$SKS?>&alamat=<?=$alamat?>&ps=<?=$ps?>&niu=<?=$NIU?>&angkatan=<?=$angkatan?>&stat=<?=$f['CountryDesc']?>&nim=<?=$NIM?>&stat2=<?=$i['ProvinceDesc']?>&thn_ajaran=<?=$thn_ajaran?>" class="btn_cetak">Cetak Dokumen</a></td>
    		  </tr>
     		<tr>
     		  <td>&nbsp;</td>

@@ -26,15 +26,15 @@ $user = $_SESSION['username'];
 	    $(document).ready(function()
 		{
 			$('#table_mahasiswa_khusus').fixheadertable({ 
-			        colratio    : [40, 70, 200, 200, 80, 70, 70, 70, 140, 120], 
+			        colratio    : [40, 70, 200, 180, 80, 70, 70, 180, 48, 120], 
 				    height      : 450, 
 				    zebra       : true,
 				    resizeCol   : true,
 				    sortable    : true,
-				    sortedColId : 3, 
-				    sortType    : ['integer', 'string', 'string', 'string', 'string', 'date'],
+				    sortedColId : 0, 
+				    sortType    : ['integer', 'string', 'string', 'string', 'string', 'float', 'integer', 'string', 'string', 'string'],
 				    dateFormat  : 'm/d/Y',
-				    pager       : true,
+				    pager       : false,
 				    rowsPerPage : 10,
 				    minColWidth : 50 
 			});
@@ -61,10 +61,10 @@ $user = $_SESSION['username'];
 			<th>Nama</th>
 			<th>Prodi</th>
 			<th>Angkatan</th>
-			<th>Semester</th>
 			<th>IPK</th>
 			<th>SKS</th>
 			<th>Kategori Status</th>
+			<th>Detail</th>
 			<th>Perbaharui</th>
 		</tr>
 	</thead>
@@ -72,8 +72,8 @@ $user = $_SESSION['username'];
 <?php
 	$hostname_akademik = "localhost"; //sia server
 	$database_akademik = "sia";
-	$username_akademik = "mtievent";
-	$password_akademik = "eventmti2013";
+	$username_akademik = "sia";
+	$password_akademik = "sia_2012";
 	$akademik = mysql_pconnect($hostname_akademik, $username_akademik, $password_akademik) or trigger_error(mysql_error(),E_USER_ERROR); 
 	mysql_select_db($database_akademik) or die("Database gagal diakses");;
 
@@ -96,7 +96,7 @@ $user = $_SESSION['username'];
 		//$password_akademik = "eventmti2013";
 		//$akademik = mysql_pconnect($hostname_akademik, $username_akademik, $password_akademik) or trigger_error(mysql_error(),E_USER_ERROR); 
 		//mysql_select_db($database_akademik) or die("Database gagal diakses");;
-		$conn = mysql_connect('localhost', 'mtievent', 'eventmti2013');
+		$conn = mysql_connect('localhost', 'sia', 'sia_2012');
 		mysql_select_db('sia');
 		//mysql_close($conn);
 		$qprodi="SELECT * from program_studi WHERE prodiKode=".$mhs2['mhsProdiKode']." AND prodiFakKode='17'";
@@ -129,7 +129,7 @@ $user = $_SESSION['username'];
 
 	 	}else{
 	 		//if($IPK >0){
-	 					$conn2 = mysql_connect('localhost', 'akadft', 'teknik0417');
+	 					$conn2 = mysql_connect('localhost', 'akadft', 'akadft*#*2013');
 						mysql_select_db('akadft_akdemikft');
 						$q_prodi="SELECT * from program WHERE PS='".$nama_prodi."'";
 						//echo $q_prodi;
@@ -152,7 +152,7 @@ $user = $_SESSION['username'];
 							if($IPK < 2.00 && $sks < 30){
 								$status="Evaluasi 2 tahun";
 								$semester=$semester+1;
-								
+								/*
 								echo "<tr>";
 								echo "<td>".$no++."</td>";
 								echo "<td>".$niu."</td>";
@@ -165,7 +165,7 @@ $user = $_SESSION['username'];
 								echo "<td>".$status."</td>";
 								echo "<td><center><a href=\"edit_mahasiswa1.php?nif=$nif\" class=\"button2 blue\" id=\"button2 blue\">Perbaharui</a></center></td>";
 								echo "</tr>";
-								
+								*/
 								$q_insert="INSERT INTO temp_mhs (NIU, NIF, NAMA, ANGKATAN, PRODI, ALAMAT, JK, jenjang, IPK, SKS, KS, TIME) VALUES ('$niu', '$nif', '$nama', '$angkatan', '$kd_prodi', '$alamat', '$jnsKelamin', '3', '$IPK', '$sks', '1', '$waktu')";
 								mysql_query($q_insert) or die(mysql_error());
 						}
@@ -173,7 +173,7 @@ $user = $_SESSION['username'];
 							if($IPK < 2.00 && $sks < 80){
 								$status="Evaluasi 4 tahun";
 								$semester=$semester+1;
-								
+								/*
 								echo "<tr>";
 								echo "<td>".$no++."</td>";
 								echo "<td>".$niu."</td>";
@@ -186,14 +186,15 @@ $user = $_SESSION['username'];
 								echo "<td>".$status."</td>";
 								echo "<td><center><a href=\"edit_mahasiswa1.php?nif=$nif\" class=\"button2 blue\" id=\"button2 blue\">Perbaharui</a></center></td>";
 								echo "</tr>";
-								
+								*/
 								$q_insert="INSERT INTO temp_mhs (NIU, NIF, NAMA, ANGKATAN, PRODI, ALAMAT, JK, jenjang, IPK, SKS, KS, TIME) VALUES ('$niu', '$nif', '$nama', '$angkatan', '$kd_prodi', '$alamat', '$jnsKelamin', '3', '$IPK', '$sks', '2', '$waktu')";
 								mysql_query($q_insert) or die(mysql_error());
 							}
-						}
-						//mysql_close($conn2);
-						/*}elseif($semester == 11){
-							$status="Evaluasi Akhir";
+						}elseif($semester == 11){
+							if($IPK < 2.00 && $sks < 80){
+								$status="Evaluasi Akhir";
+								$semester=$semester+1;
+								/*
 								echo "<tr>";
 								echo "<td>".$no++."</td>";
 								echo "<td>".$niu."</td>";
@@ -204,15 +205,18 @@ $user = $_SESSION['username'];
 								echo "<td>".$IPK."</td>";
 								echo "<td>".$sks."</td>";
 								echo "<td>".$status."</td>";
-								echo "<td><center><a href=\"#\" class=\"button2 blue\" id=\"button2 blue\">Perbaharui</a></center></td>";
+								echo "<td><center><a href=\"edit_mahasiswa1.php?nif=$nif\" class=\"button2 blue\" id=\"button2 blue\">Perbaharui</a></center></td>";
 								echo "</tr>";
-						}*/
+								*/
+							}
+						}
 	 		//}
 	 	}
 	 //}	
 	}
 
-		$conn3 = mysql_connect('localhost', 'akadft', 'teknik0417');
+		//masuk ke database dari temp_mhs ke mahasiswa
+		$conn3 = mysql_connect('localhost', 'akadft', 'akadft*#*2013');
 		mysql_select_db('akadft_akdemikft');
 		$q_mhs = mysql_query("select * from temp_mhs") or die('SQL Error :: '.mysql_error());
 		$number=0;
@@ -249,7 +253,7 @@ $user = $_SESSION['username'];
 			$status=$qk[2];
 			$IPK=$mhs3['IPK'];
 			$SKS=$mhs3['SKS'];
-			$KS=$mh3s['KS'];
+			$KS=$mhs3['KS'];
 			$waktu=$mhs3['TIME'];
 			$query_mhs = mysql_query("select * from mahasiswa WHERE NIF='$nif'") or die('SQL Error :: '.mysql_error());
 			if(mysql_num_rows($query_mhs) > 0 ){
@@ -259,21 +263,61 @@ $user = $_SESSION['username'];
 				$q_insert="INSERT INTO mahasiswa (NIU, NIF, NAMA, ANGKATAN, PRODI, ALAMAT, JK, jenjang, IPK, SKS, KS, TIME) VALUES ('$niu', '$nif', '$nama', '$angkatan', '$kd_prodi', '$alamat', '$jnsKelamin', '$jenjang', '$IPK', '$sks', '2', '$waktu')";
 				mysql_query($q_insert) or die(mysql_error());
 				$masuk++;
-					/*
+					
+			}
+		}
+
+		//tampilkan ke tabel di halaman
+		$tbl_mhs = mysql_query("select * from mahasiswa") or die('SQL Error :: '.mysql_error());
+		$no=0;
+		while($mhs4=mysql_fetch_array($tbl_mhs)){
+			$niu=$mhs4['NIU'];
+			$nif=$mhs4['NIF'];
+			$nama=$mhs4['NAMA'];
+			$angkatan=$mhs4['ANGKATAN'];
+			$jnsKelamin=$mhs4['JK'];
+			$jenjang=$mhs4['jenjang'];
+			$alamat=$mhs4['ALAMAT'];
+			$kd_prodi=$mhs4['PRODI'];
+			$q_prodi="SELECT * from program WHERE prodi ='".$kd_prodi."'";
+			$r_prodi=mysql_query($q_prodi) or die(mysql_error());
+			$qp=mysql_fetch_row($r_prodi);
+			$nama_prodi=$qp[1];
+			
+			$tahun_sekarang = date("Y");
+			$weekNumber = date("W"); 
+			$semester = $tahun_sekarang - $angkatan;
+			$semester = $semester * 2;
+			
+			if($tahun_sekarang == $angkatan){
+				$semester = 1;
+			}else if(($weekNumber < 35) AND ($weekNumber > 8)){
+				$semester=$semester-1;
+			}
+			$semester=$semester+1;
+			$kd_khusus=$mhs4['KS'];
+			$q_khus="SELECT * from m_country WHERE CountryCode='".$kd_khusus."'";
+			$r_khus=mysql_query($q_khus) or die(mysql_error());
+			$qk=mysql_fetch_row($r_khus);
+			$status=$qk[2];
+			$IPK=$mhs4['IPK'];
+			$SKS=$mhs4['SKS'];
+			$KS=$mhs4['KS'];
+			$waktu=$mhs4['TIME'];
+			$nomor=$nomor+1;
 					echo "<tr>";
-					echo "<td>".$number++."</td>";
+					echo "<td>".$nomor."</td>";
 					echo "<td>".$niu."</td>";
 					echo "<td>".$nama."</td>";
-					echo "<td>".$nama_prodi."</td>";
+					echo "<td><style color=#fff>$kd_prodi</style>$nama_prodi</td>";
 					echo "<td>".$angkatan."</td>";
-					echo "<td>".$semester."</td>";
+					//echo "<td>".$semester."</td>";
 					echo "<td>".$IPK."</td>";
 					echo "<td>".$sks."</td>";
 					echo "<td>".$status."</td>";
+					echo "<td><center><a href=\"#\" class=\"button2 blue\" id=\"button2 blue\">KHS</a></center></td>";
 					echo "<td><center><a href=\"edit_mahasiswa1.php?nif=$nif\" class=\"button2 blue\" id=\"button2 blue\">Perbaharui</a></center></td>";
 					echo "</tr>";
-					*/
-			}
 		}
 		//$conn4 = mysql_connect('localhost', 'akadft', 'teknik0417');
 		//mysql_select_db('akadft_akdemikft');

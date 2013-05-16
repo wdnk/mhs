@@ -1,3 +1,4 @@
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
 <?php
 //panggil file koneksi.php untuk menghubung ke server
 include "../koneksi.php";
@@ -33,7 +34,7 @@ body {
 if($ta=="" || $country=="" || $provinsi=="" || $bulan_lulus=="" || $tahun_lulus=="") {
 echo "<span class='style1'>Maaf, kolom :<br><br>- Tugas Akhir <br>- Kategori Status Terbaru<br>- Status Detail Terbaru<br>- Target Lulus<br>jangan sampai kosong ya !!!</span>";
 echo "<p></p>";
-echo "<a href='form_cari_data.php'><img src='../img/ok1.png' name='ok'></a></a>";
+echo "<a href='javascript:history.back();'>ulangi</a>";
 }
 else {
 		
